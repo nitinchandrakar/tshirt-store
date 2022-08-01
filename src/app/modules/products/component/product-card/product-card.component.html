@@ -1,0 +1,17 @@
+<app-card>
+    <div class="product-card-name">
+        {{product.name}}
+    </div>
+    <app-aspect-ratio-image [src]="product.imageURL" [alt]="product.name" [aspectRatio]="16/9"></app-aspect-ratio-image>
+    <div class="product-card-content">
+        <div class="product-card-price">
+            <span>Rs</span>
+            <span>{{product.price}}</span>
+        </div>
+        <div class="product-card-button">
+            <button class="add-card-button" (click)="addToCart()">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+</app-card>

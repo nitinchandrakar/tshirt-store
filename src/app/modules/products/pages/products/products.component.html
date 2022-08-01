@@ -1,0 +1,22 @@
+<div class="product-page-wrapper">
+    <section class="search">
+        <app-search></app-search>
+        <div class="mobile-filter">
+            <button class="filter-button" (click)="isHide=!isHide">Filter</button>
+        </div>
+    </section>
+    <section class="product-list-section">
+        <aside class="product-filter" [class.isHide]="isHide">
+            <app-card *ngIf="services.filterSubject$ | async as filters">
+                <app-filter [filters]="filters"></app-filter>
+            </app-card>
+           
+        </aside>
+        <section class="product-list" *ngIf="services.productSubject$ | async as products">
+          <div class="product-list__grid" *ngFor="let product of products">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </section>
+    </section>
+   
+</div>
